@@ -69,7 +69,7 @@ Work模式
 ```
 php think queue:work
 --daemon                //是否循环执行，如果不加该参数，则该命令处理完下一个消息就退出
---queue  helloJobQueue  //要处理的队列的名称
+--queue  myQueue        //要处理的队列的名称
 --delay  0              //如果本次任务执行抛出异常且任务未被删除时，设置其下次执行前延迟多少秒,默认为0
 --force                 //系统处于维护状态时是否仍然处理任务，并未找到相关说明
 --memory 128            //该进程允许使用的内存上限，以 M 为单位
@@ -80,7 +80,7 @@ php think queue:work
 Listen模式
 ```
 php think queue:listen
---queue  helloJobQueue   //监听的队列的名称
+--queue  myQueue         //监听的队列的名称
 --delay  0               //如果本次任务执行抛出异常且任务未被删除时，设置其下次执行前延迟多少秒,默认为0
 --memory 128             //该进程允许使用的内存上限，以 M 为单位
 --sleep  3               //如果队列中无任务，则多长时间后重新检查，daemon模式下有效
