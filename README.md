@@ -9,7 +9,7 @@ app/extra/queue.php
 return [
     'connector'  => 'Redis',          // Redis 驱动
     'expire'     => 60,               // 任务的过期时间，默认为60秒; 若要禁用，则设置为 null
-    'default'    => 'scfc_by_queue',  // 默认的队列名称
+    'default'    => 'myQueue',  // 默认的队列名称
     'host'       => '127.0.0.1',      // redis 主机ip
     'port'       => 6379,             // redis 端口
     'password'   => '',               // redis 密码
@@ -22,8 +22,8 @@ return [
 ```
 
 # crontab配置
-
 定时时间以linux格式编写
+```
 *    *    *    *    *    *
 -    -    -    -    -    -
 |    |    |    |    |    |
@@ -33,6 +33,8 @@ return [
 |    |    +--------------- day of month (1 - 31)
 |    +-------------------- hour (0 - 23)
 +------------------------- min (0 - 59)
+```
+
 ```
 //queue方式
 $output->writeln(self::addTask('app\api\controller\Test', array('param_1' => 1, 'param_2' => 2), "*/1 * * * *"));
